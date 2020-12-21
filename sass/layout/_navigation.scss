@@ -1,0 +1,166 @@
+.navigation{
+
+  //hide the checkbox
+  &__checkbox{
+    display: none;
+  }
+
+  //should be slightly larger than the nav-background so it will be on top of it
+  &__button{
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50%;
+    position: fixed;
+    background-color: white;
+    top: 6rem;
+    right: 6rem;
+    z-index: 400;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  //the white circle, the burger menu
+  &__background{
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    position: fixed;
+    top: 6.5rem;
+    right: 6.5rem;
+
+    //starts from the center then the outer radius
+    background-image: radial-gradient($color-primary-light, $color-primary-dark);
+    z-index: 100;
+    transition: all .8s;
+  }
+
+  &__checkbox:checked ~ &__background{
+    transform: scale(80);
+  }
+
+  &__checkbox:checked ~ &__nav{
+    opacity: 1;
+    width: 100%;
+  }
+
+  &__nav{
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    left: 0;
+
+    //hide
+    opacity: 0;
+    width: 0;
+
+    //on top of everything
+    z-index: 300;
+
+    //transition
+    transition: all .8s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  }
+
+  &__list{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%); 
+    list-style: none; //remove the bullets
+    text-align: center;
+  }
+
+  &__item{
+    margin-bottom: 2rem;
+  }
+
+  &__link{
+    &:link,
+    &:visited{
+      display: inline-block;
+      font-size: 3rem;
+      font-weight: 300;
+      padding: 1rem 2rem;
+      color: white;
+      text-transform: uppercase;
+      text-decoration: none;
+      background-image: linear-gradient(120deg, transparent 50%,white 50%);
+      transition: all .4s;
+
+      //the idea is to have two colors, the transparent one and the white one
+      //push to left and right only when hovered
+      //achieved by increasing the background size
+      background-size: 230%;
+      
+    }
+    
+    span{
+      margin-right: 1rem;
+    }
+
+    &:hover,
+    &:active{
+      //shift the bakcground to the left
+      background-position: 100%;
+      color: $color-primary;
+
+      //for it to be transformable, it needs to be inline block
+      //bc by default li a is an inline
+      transform: translateX(1rem);
+    }
+  }
+
+  //ICON
+  &__icon{
+    position: relative;
+    top: 3.3rem;
+
+    &,
+    &::after,
+    &::before{
+      height: 2px;
+      width: 3rem;
+      background-color: $color-grey-dark-3;
+      display: inline-block;
+      
+      //how to center them?
+      //text-align:center the nav__button
+    }
+
+    &::after,
+    &::before{
+      content: "";
+      left: 0;
+
+      //the parent element is the icon itselft since they are both pseudo elements
+      position: absolute;
+      transition: .2s;
+    }
+
+    &::before{top: -.8rem;}
+    &::after{top: .8rem;}
+  }
+
+  //navigation__icon
+  //when hovered, will exand a little
+  &__button:hover &__icon::before{top: -1rem;}
+  &__button:hover &__icon::after{top: 1rem;}
+
+  //animate the burger menu to x button when checked
+  //step is hide the center element which is the span
+  //then rotate the before and pseudo classes and let them meet
+
+  //make the center invisible
+  &__checkbox:checked + &__button &__icon{
+    background-color: transparent; //this still has the shape same with after and before pseudo but just transparent background color
+  }
+
+  &__checkbox:checked + &__button &__icon::before{
+    top: 0; // since rotating kinda moves the element a bit and changing their position. We need to get them back to their original position
+    transform: rotate(135deg);
+  }
+
+  &__checkbox:checked + &__button &__icon::after{
+    top: 0;
+    transform: rotate(-135deg);
+  }
+}

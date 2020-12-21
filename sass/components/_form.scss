@@ -1,0 +1,133 @@
+.form{
+
+  &__group{
+    &:not(:last-child){
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__input{
+
+    //form elements do not inherit properties so you need to define it again heres
+    font-family: inherit;
+    color: inherit;
+
+    display: block;
+    width: 90%;
+    font-size: 1.5rem;
+    padding: 1.5rem 2rem;
+    transition: all .3s;
+
+    // border-bottom: 3px solid $color-primary;
+    border-radius: 2px;
+    border: none;
+
+    //so it wont move a little bit when adjusting
+    border-bottom: 3px solid transparent;
+
+    &:focus{
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba(black, .1);
+      border-bottom: 3px solid $color-primary;
+    }
+
+    //setting style when the input is invalid, in focused mode
+    &:focus:invalid{
+      border-bottom: 3px solid #EF0107;
+    }
+    //styling the input placeholder
+    &::-webkit-input-placeholder{
+      color: $color-grey-dark-2;
+    }
+  }
+
+  &__label{
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-top: .7rem;
+    display: block;
+    transition: all .3s;
+
+  }
+
+  //animating the full name and email below the input
+  //the idea is it will only appear when the placeholder is shown, meaning there is no text yet in the placeholder. Because the placeholder text will be removed once you start typing
+
+  //so we select the input and use the property :placeholder-shown 
+  //then we select the label, the one who will appear and disappear.
+  //label and input has the same parent and they are called sibling or adjacent sibling. (+) is the operator for sibling
+  //label must be below the input in html flow for this to work
+  &__input:placeholder-shown + &__label{
+    // hide from the start, when placeholder is shown
+    opacity: 0;
+    visibility: hidden; // the difference of visibility to opacity is that hidden remove the element from html flow or web page as if its not there while opacity just makes it transparent and for us to be able to add some animation
+    transform: translateY(-4rem)
+  }
+
+  &__radio-group{
+    //to be side by side. or you can use float
+    width: 49%;
+    display: inline-block;
+
+  }
+
+  &__radio-input:checked + &__radio-label &__radio-button::after{
+    opacity: 1;
+  }
+
+  //hide the initial radio input
+  &__radio-input{
+    //display none will remove the element also in page
+    //using opacity 0 will take space, it is there its just invisible
+    //display none will remove it from the webpage 
+    display: none;
+  }
+
+  &__radio-label{
+    cursor: pointer;
+  }
+
+  &__radio-button{
+    transform: translateY(1rem);
+    // to make it a circle, it has to have same width and height
+    height: 3rem;
+    width: 3rem;
+
+    //also have 50% border radius for complete circle
+    border: 5px solid $color-primary;
+    border-radius: 50%; //setting to 20% or less would make it a square
+
+    //also need to set as inline-block or block-size
+    display: inline-block;
+    margin-right: 1rem;
+    position: relative;
+
+    &::after{
+      //to make the small circle inside the outside circle
+      //use pseudo element::after
+      //since every time we use a pseudo element we have to give "content"
+      content: "";
+      display: block;
+
+      //smaller than the outside circle
+      height: 1.2rem;
+      width: 1.2rem;
+      background-color: $color-primary;
+      border-radius: 50%;
+      
+      //position inside the outer circle
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+
+      //make it invisible. ONly appears when the radio-label is :checked
+      opacity: 0;
+
+      transition: all .2s;
+    }
+    
+
+  }
+}

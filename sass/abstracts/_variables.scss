@@ -1,0 +1,35 @@
+//green
+$color-primary: #55c57a;
+$color-primary-light: #78e781;
+$color-primary-dark: #28b485;
+
+//orange
+$color-secondary-light: #ffb900;
+$color-secondary-dark: #ff7730;
+
+//blue
+$color-tertiary-light: #01afec;
+$color-tertiary-dark: #0092ff;
+
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+
+$color-grey-dark:#777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333333;
+$color-white:#fff;
+
+//default font size
+$default-font-size: 1.6rem;
+
+//grid variables
+$grid-width: 114rem;
+$grid-width-2: 75%;
+$gutter-horizontal: 6rem;
+$gutter-vertical: 6rem;
+$col-1-of-2: calc((#{$grid-width} - #{$gutter-horizontal})/2);
+$col-1-of-3: calc((#{$grid-width - #{$gutter-horizontal}*2})/3);
+$col-2-of-3: calc(#{$col-1-of-3}*2 + #{$gutter-horizontal});
+$col-1-of-4: calc((#{$grid-width} - 3*#{$gutter-horizontal})/4);
+$col-2-of-4: calc(2*#{$col-1-of-4} + #{$gutter-horizontal});
+$col-3-of-4: calc(#{$grid-width} - #{$gutter-horizontal} - #{$col-1-of-4});

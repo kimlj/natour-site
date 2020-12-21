@@ -1,0 +1,56 @@
+/*
+Animations
+*/
+
+/*
+heading-primary-main
+@keyframes [name]
+*/
+@keyframes moveInLeft {
+	/*beginning*/
+	0% {
+		opacity: 0; /*to make invisible*/
+		transform: translateX(-10rem); /*negative means minus 100px from the left*/
+	}
+
+	80% {
+		transform: translateX(1rem);
+	}
+
+	/*end*/
+	100% {
+		opacity: 1;
+		transform: translate(0); /*0 is the original position*/
+	}
+
+}
+
+/*
+heading-primary-sub
+*/
+
+@keyframes moveInRight {
+	0% {
+		opacity: 0;
+		transform: translateX(10rem);
+	}
+
+	80% {
+		transform: translateX(-1rem);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate(0);
+	}
+}
+
+@keyframes moveInBottom{
+	0%{
+
+	}
+
+	100%{
+
+	}
+}

@@ -1,0 +1,77 @@
+.story{
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba(black, .1);
+  background-color: rgba($color-white, .6); //giving opacity to make it look more transparent
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 9rem;
+  font-size: $default-font-size;
+
+  //skew the element, and revert back the direct child to original
+  transform: skewX(-12deg);
+
+  //using direct child, the direct child are (__shape and __text) this wont work to __shape since it has already a transform property, only one should work
+  //you need to add the skewX to the __shape transform manually
+  // & > *{
+  //   transform: skewX(12deg);
+  // }
+
+  //create a shape container for the image, and then make the image fit the shape of that container
+  &__shape{
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    position: relative;
+    
+    //shape outside, only works if the element is floated and have width and height
+    //syntax - circle(radius at x y )
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%); 
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    transform: translateX(-3rem) skewX(12deg);
+
+  }
+
+  &__img{
+    height: 100%;
+    //to center the picture
+    transform: translateX(-4rem) scale(1.4); //scale it up here at the starting state so we can scale it down when hovered
+    transition: all 0.5s;
+
+  }
+
+  &__text{
+    transform: skewX(12deg);
+  }
+
+  &__caption{
+    color: $color-white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,20%);
+    text-transform: uppercase;
+    text-align: center;
+
+    //to make the name invisible/transparent. Only appears when hovered
+    opacity: 0;
+    transition: all 0.5s;
+  }
+
+  //read as - when the story was hovered, select/change the __caption
+  &:hover &__caption{
+    // top: 50%;
+    // left: 50%;
+    transform: translate(-50%,-50%);
+    opacity: 1;
+  }
+  &:hover &__img{
+    transform: translateX(-4rem) scale(1);
+
+    //using filter to blur and darken images
+    filter: blur(3px) brightness(80%);//80% darkness means slightly dark, anything above 100% means brighter
+  }
+
+}
