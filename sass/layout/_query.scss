@@ -9,9 +9,26 @@
 
 //1125px
 @media (max-width: 70.3125em){
-  // html{
-  //   font-size: 53.5%;
+  // .row{
+  //   width: 57rem;
   // }
+
+  // .row [class^="col-"] {
+  //   float: none;}
+
+  // .row [class^="col-"]:not(:last-child) {
+  //   margin-right: 0; }
+  
+  // .row:not(:last-child) {
+  //   margin-bottom: 0; }
+  
+}
+
+//1099px
+@media (max-width: 68.6875em){
+  body{
+    padding: 0;
+  }
 }
 
 //1050px
@@ -23,13 +40,10 @@
 
 //959px
 @media (max-width: 59.9375em){
-  body{
-    padding: 0;
-  }
+  
 }
 
 //QUERY FOR FONT SIZES. This only change the font size
-//AAAAAA
 @media (min-width: 858px) {
   html {
       font-size: 12px;
