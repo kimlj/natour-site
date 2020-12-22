@@ -755,7 +755,30 @@ body {
   .section-about .col-1-of-2:first-child {
     width: 45%; }
   .section-about .row [class^="col-"]:not(:last-child) {
-    margin-right: 5rem; } }
+    margin-right: 5rem; }
+  .card__details {
+    margin-top: -2rem; }
+    .card__details li:last-child {
+      padding-bottom: 5rem; }
+  .card__side {
+    height: auto;
+    position: relative; }
+  .card__price--box {
+    margin-top: -6rem; }
+    .card__price--box a {
+      margin-bottom: 4rem; }
+  .card__price--value {
+    font-size: 4rem;
+    font-weight: 300;
+    margin-bottom: 2rem; }
+  .card__side--back {
+    transform: rotateY(0);
+    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+    top: -5rem; }
+  .btn--features {
+    position: absolute;
+    top: 20rem;
+    display: block; } }
 
 @media (max-width: 76.5625em) {
   body {
