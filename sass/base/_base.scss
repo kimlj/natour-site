@@ -11,8 +11,7 @@ html{
   //to define what 1 rem is
   font-size: 62.5%; /*62.5% = 10px for default browsers with 16px. This is better practice bc some users adjust their browser's default font sizes*/
   scroll-behavior: smooth;
-
-
+  line-height: 1.2;
 }
 
 body {

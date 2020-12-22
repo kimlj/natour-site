@@ -24,7 +24,8 @@
 html {
   font-size: 62.5%;
   /*62.5% = 10px for default browsers with 16px. This is better practice bc some users adjust their browser's default font sizes*/
-  scroll-behavior: smooth; }
+  scroll-behavior: smooth;
+  line-height: 1.2; }
 
 body {
   box-sizing: border-box;
@@ -750,29 +751,21 @@ body {
   top: 0;
   transform: rotate(-135deg); }
 
-@media (max-width: 68.6875em) {
+@media (max-width: 78.6875em) {
+  .section-about .col-1-of-2:first-child {
+    width: 45%; }
+  .section-about .row [class^="col-"]:not(:last-child) {
+    margin-right: 5rem; } }
+
+@media (max-width: 76.5625em) {
   body {
-    padding: 0; } }
-
-@media (min-width: 858px) {
-  html {
-    font-size: 12px; } }
-
-@media (min-width: 780px) {
-  html {
-    font-size: 11px; } }
-
-@media (min-width: 702px) {
-  html {
-    font-size: 10px; } }
-
-@media (min-width: 724px) {
-  html {
-    font-size: 9px; } }
-
-@media (max-width: 623px) {
-  html {
-    font-size: 8px; } }
+    padding: 0; }
+  .navigation__button {
+    top: 3.5rem;
+    right: 3.5rem; }
+  .navigation__background {
+    top: 4rem;
+    right: 4rem; } }
 
 .section-about {
   background-color: #f7f7f7;
