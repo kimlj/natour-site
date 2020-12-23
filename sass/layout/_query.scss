@@ -1,19 +1,20 @@
+
+
 //1259px
-
 @media (max-width: 78.6875em){
-  .section-about .col-1-of-2:first-child{
-    width: 45%;
-  }
+  // .section-about .col-1-of-2:first-child{
+  //   width: 45%;
+  // }
 
-  .section-about .row [class^="col-"]:not(:last-child) {
-    margin-right: 5rem;
-  }
+  // .section-about .row [class^="col-"]:not(:last-child) {
+  //   margin-right: 5rem;
+  // }
 
   .card__details{
     margin-top: -2rem;
 
     li:last-child{
-      padding-bottom: 5rem;
+      margin-bottom: 3rem;
     }
   }
   .card__side{
@@ -41,17 +42,21 @@
   }
 
   .btn--features{
-    position: absolute;
-    top: 20rem;
-    display: block;
+    position: relative;
+    top: 22rem;
+  }
+
+  .section-tours{
+    padding-bottom: 30rem;
   }
 }
 
+
 //1225px
 @media (max-width: 76.5625em){
-  body{
-    padding: 0;
-  }
+  // body{
+  //   padding: 0;
+  // }
 
   .navigation__button{
     top: 3.5rem;
@@ -61,6 +66,14 @@
   .navigation__background{
     top: 4rem;
     right: 4rem;
+  }
+}
+
+//MEDIA QUERY FOR FONT SIZES
+//1200px
+@media only screen and (max-width: 75em){
+  html{
+    font-size: 56.25%;
   }
 }
 

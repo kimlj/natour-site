@@ -20,7 +20,10 @@
 @import "layout/grid";
 @import "layout/header";
 @import "layout/navigation";
-@import "layout/query";
+
 
 @import "pages/home";
 
+
+//media query - import last to not conflict with other styles
+@import "layout/query";
